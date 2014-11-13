@@ -28,8 +28,12 @@ Partial Class Form1
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Prp1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -43,7 +47,10 @@ Partial Class Form1
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Prp1DataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.BindingSource2
         Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 21
@@ -73,11 +80,30 @@ Partial Class Form1
         'BindingSource1
         '
         '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.DataBindings.Add(New System.Windows.Forms.Binding("FlowDirection", Me.BindingSource2, "Prp1", True))
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(132, 154)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(98, 60)
+        Me.FlowLayoutPanel1.TabIndex = 4
+        '
+        'BindingSource2
+        '
+        Me.BindingSource2.DataSource = GetType(Yc.Class1)
+        '
+        'Prp1DataGridViewTextBoxColumn
+        '
+        Me.Prp1DataGridViewTextBoxColumn.DataPropertyName = "Prp1"
+        Me.Prp1DataGridViewTextBoxColumn.HeaderText = "Prp1"
+        Me.Prp1DataGridViewTextBoxColumn.Name = "Prp1DataGridViewTextBoxColumn"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.DataGridView1)
@@ -86,6 +112,7 @@ Partial Class Form1
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -95,5 +122,8 @@ Partial Class Form1
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents Prp1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
 
 End Class

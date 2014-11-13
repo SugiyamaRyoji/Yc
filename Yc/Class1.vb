@@ -9,4 +9,8 @@
             Me.mPrp1 = value
         End Set
     End Property
+
+    Public Sub New()
+        Dim a = ""
+    End Sub
 End Class
